@@ -1,5 +1,5 @@
-function Home() {
+function HomePage() {
   return <div>Home Page - список героев</div>;
 }
 
-export default Home;
+export default HomePage;

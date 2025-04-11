@@ -1,5 +1,5 @@
-function Item() {
+function ItemPage() {
   return <div>Item Page - график предмета</div>;
 }
 
-export default Item;
+export default ItemPage;

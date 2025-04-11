@@ -1,5 +1,5 @@
-function Hero() {
+function HeroPage() {
   return <div>Hero Page - предметы на героя</div>;
 }
 
-export default Hero;
+export default HeroPage;
