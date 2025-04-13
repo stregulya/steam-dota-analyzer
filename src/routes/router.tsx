@@ -4,6 +4,7 @@ import HomePage from "../pages/HomePage/HomePage";
 import HeroPage from "../pages/HeroPage/HeroPage";
 import ItemPage from "../pages/ItemPage/ItemPage";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import { heroLoader } from "../pages/HeroPage/heroLoader";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
       {
         path: "hero/:heroId",
         element: <HeroPage />,
+        loader: heroLoader,
       },
       {
         path: "hero/:heroId/:itemId",

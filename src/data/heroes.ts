@@ -1,10 +1,10 @@
-type Heroes = {
+export type Hero = {
   id: string;
   name: string;
   image: string;
 };
 
-export const heroes: Heroes[] = [
+export const heroes: Hero[] = [
   {
     id: "axe",
     name: "Axe",
