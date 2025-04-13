@@ -11,7 +11,14 @@ const router = createBrowserRouter([
     path: "/",
     element: <RootLayout />,
     children: [
-      { path: "/", element: <HomePage /> },
+      {
+        path: "/",
+        element: <HomePage />,
+        loader: async () => {
+          const res = await fetch("http://localhost:3001/api/heroes");
+          return res.json();
+        },
+      },
       {
         path: "hero/:heroId",
         element: <HeroPage />,
