@@ -1,10 +1,9 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, LoaderFunctionArgs } from "react-router-dom";
 import RootLayout from "../layout/RootLayout";
-import HomePage from "../pages/HomePage/HomePage";
-import HeroPage from "../pages/HeroPage/HeroPage";
-import ItemPage from "../pages/ItemPage/ItemPage";
-import ErrorPage from "../pages/ErrorPage/ErrorPage";
-import { heroLoader } from "../pages/HeroPage/heroLoader";
+import HomePage from "../pages/HomePage";
+import HeroPage from "../pages/HeroPage";
+import ItemPage from "../pages/ItemPage";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +21,13 @@ const router = createBrowserRouter([
       {
         path: "hero/:heroName",
         element: <HeroPage />,
-        loader: heroLoader,
+        loader: async ({ params }: LoaderFunctionArgs) => {
+          const { heroName } = params;
+          const res = await fetch(
+            `http://localhost:3001/api/heroes/${heroName}/items`
+          );
+          return res.json();
+        },
       },
       {
         path: "hero/:heroName/:itemName",
