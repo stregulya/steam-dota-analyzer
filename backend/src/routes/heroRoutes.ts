@@ -6,7 +6,7 @@ import { Hero } from "../types";
 const router = Router();
 
 //Читаем файл с героями и предметами
-const dataPath = path.join(__dirname, "data/data.json");
+const dataPath = path.join(__dirname, "../data/data.json");
 const rawData = fs.readFileSync(dataPath, "utf-8");
 const heroesAndItems: Hero[] = JSON.parse(rawData);
 

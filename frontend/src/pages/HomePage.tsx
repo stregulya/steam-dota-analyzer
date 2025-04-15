@@ -1,6 +1,6 @@
 import { useState } from "react";
-import HeroCard from "../../Components/HeroCard";
 import { useLoaderData } from "react-router-dom";
+import HeroCard from "../components/HeroCard";
 
 type Hero = {
   id: number;

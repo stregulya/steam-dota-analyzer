@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         loader: async ({ params }) => {
           const { heroName, itemName } = params;
           const res = await fetch(
-            `http://localhost:3001/api/hero/${heroName}/${itemName}`
+            `http://localhost:3001/api/heroes/${heroName}/${itemName}`
           );
           return res.json();
         },
