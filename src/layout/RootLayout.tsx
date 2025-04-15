@@ -11,7 +11,7 @@ function RootLayout() {
           <h1 className="text-xl font-bold">Dota Analyzer</h1>
         </Link>
       </header>
-      <main className="p-4 max-w-5xl mx-auto">
+      <main className="p-4 w-[1024px] mx-auto box-border">
         <Outlet />
       </main>
     </div>

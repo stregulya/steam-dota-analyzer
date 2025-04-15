@@ -1,16 +1,42 @@
-import { Hero } from "../../data/heroes";
+import { useState } from "react";
 import HeroCard from "../../Components/HeroCard";
 import { useLoaderData } from "react-router-dom";
 
+type Hero = {
+  id: number;
+  heroName: string;
+};
+
 function HomePage() {
+  const [searchValue, setSearchValue] = useState<string>("");
   const heroes = useLoaderData() as Hero[];
   return (
     <>
       <h2 className="mb-5">Home Page - список героев</h2>
+      <input
+        type="text"
+        className="mb-4 p-2 focus:outline-none rounded-md bg-slate-700"
+        value={searchValue}
+        onChange={(e) => {
+          setSearchValue(e.target.value);
+        }}
+      />
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        {heroes.map((hero) => (
-          <HeroCard hero={hero} />
-        ))}
+        {heroes
+          .sort((a, b) => {
+            if (a.heroName < b.heroName) return -1;
+            if (a.heroName > b.heroName) return 1;
+            return 0;
+          })
+          .filter((hero) => {
+            if (searchValue === "") return true;
+            return hero.heroName
+              .toLowerCase()
+              .includes(searchValue.toLowerCase());
+          })
+          .map((hero) => (
+            <HeroCard hero={hero} key={hero.id} />
+          ))}
       </div>
     </>
   );

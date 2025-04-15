@@ -20,17 +20,17 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "hero/:heroId",
+        path: "hero/:heroName",
         element: <HeroPage />,
         loader: heroLoader,
       },
       {
-        path: "hero/:heroId/:itemId",
+        path: "hero/:heroName/:itemName",
         element: <ItemPage />,
         loader: async ({ params }) => {
-          const { itemId } = params;
+          const { heroName, itemName } = params;
           const res = await fetch(
-            `http://localhost:3001/api/steam-item?market_hash_name=${itemId}`
+            `http://localhost:3001/api/hero/${heroName}/${itemName}`
           );
           return res.json();
         },
