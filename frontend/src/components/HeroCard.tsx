@@ -1,9 +1,5 @@
 import { Link } from "react-router-dom";
-
-type Hero = {
-  id: number;
-  heroName: string;
-};
+import { Hero } from "../pages/HomePage";
 
 export default function HeroCard({ hero }: { hero: Hero }) {
   return (

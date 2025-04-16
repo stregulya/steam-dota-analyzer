@@ -25,7 +25,7 @@ function HeroPage() {
         type: string;
         market_name: string;
         market_hash_name: string;
-        commodity: 0;
+        commodity: number;
       };
       sale_price_text: string;
     }[];
@@ -45,16 +45,15 @@ function HeroPage() {
           })
           .filter((item) => {
             const price = parseInt(item.sell_price_text.slice(1, -1));
-            if (price > 0.1) return true;
-            return false;
-          })
-          .filter((item) => {
-            if (item.sell_listings > 10) return true;
+            if (price > 0.1 && item.sell_listings > 10) return true;
             return false;
           })
           .map((item) => (
             <Link to={`${item.name}`}>
-              <div className="grid grid-cols-2 gap-2 p-2 rounded-md border border-gray-700">
+              <div
+                className="grid grid-cols-2 gap-2 p-2 rounded-md border"
+                style={{ borderColor: `#${item.asset_description.name_color}` }}
+              >
                 <img
                   src={
                     "https://community.fastly.steamstatic.com/economy/image/" +

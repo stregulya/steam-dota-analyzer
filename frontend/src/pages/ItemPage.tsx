@@ -4,7 +4,9 @@ function ItemPage() {
   const itemData = useLoaderData() as {
     name: string;
     sell_listings: number;
-    sell_price_text: string;
+    lowest_price: string;
+    volume: string;
+    median_price: string;
   };
   return (
     <>
@@ -12,7 +14,9 @@ function ItemPage() {
         <h2 className="text-xl font-bold mb-2">Информация о предмете</h2>
         <p>💰 Имя: {itemData.name}</p>
         <p>📈 На ТП: {itemData.sell_listings}</p>
-        <p>📊 Цена: {itemData.sell_price_text}</p>
+        <p>📊 Цена: {itemData.median_price}</p>
+        <p>📊 Минимальная цена: {itemData.lowest_price}</p>
+        <p>📊 Продаж за 24 часа: {itemData.volume}шт.</p>
       </div>
       <Link to={-1} className="text-blue-400 underline mt-4 inline-block">
         ← Назад

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import HeroCard from "../components/HeroCard";
 
-type Hero = {
+export type Hero = {
   id: number;
   heroName: string;
 };
